@@ -1,4 +1,14 @@
+
+//const electron = require('electron'); Same thing
 const {app, BrowserWindow} = require('electron');
+/* The app window is the made by the electron library. Browser window is the main window
+Process Timeline:
+	Electron start
+	app process created
+	app ready to start doing things
+	app closes down
+*/
+
 const url = require('url');
 
 
@@ -9,23 +19,23 @@ let win = null
 function boot() {
 	//console.log(process.type)
 
-	//Browser window is main window so it cann't be modified with renderer
+	//Browser window is main window so it can't be modified with renderer
 	win = new BrowserWindow({
 		width: 1000,
-		height: 500,
+		height: 500
 		//specifies an array of file types that can be displayed or selected when you want to limit the user to a specific type. 
 		
-	})
+	});
 
-	win.loadURL(url.format({
+	/*win.loadURL(url.format({
 		pathname: 'index.html',
 		slashes: true
-	}))
+	}));*/
 	//This is the same as above
-	//win.loadURL(`file://${__dirname}/index.html`)
+	win.loadURL(`file://${__dirname}/index.html`);
 	
 }
 
 // Main and renderer
-
+// Event based programming. Waiting for app to be ready
 app.on('ready', boot);
