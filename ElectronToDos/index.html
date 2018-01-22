@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UFT-8">
+	<title> Hello World!</title>
+	<link rel="stylesheet" href="style.css">
+	<script type="text/javascript" src="eventListener.js"></script>
+</head>
+<body>
+
+	<script>
+		const electron = require('electron');
+		const {ipcRenderer} = electron;
+		const ul = document.querySelector('ul');
+
+		ipcRenderer.on('item:add',function(e,item){
+			const li = document.createElement('li');
+			const itemText = document.creatTextNode(item);
+			li.appendChild(itemText);
+			ul.appendChild(li);
+		});
+
+	</script>
+</body>
+</html>

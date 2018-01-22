@@ -1,14 +1,17 @@
 {
-  "name": "electron-to-do",
+  "name": "hello-world",
   "version": "1.0.0",
-  "description": "",
-  "main": "ToDo.js",
+  "description": "Initial Test",
+  "main": "index.js",
   "scripts": {
-    "electron": "electron ."
+    "start": "electron ."
   },
-  "author": "",
+  "author": "David Ding",
   "license": "ISC",
+  "devDependencies": {
+    "electron": "1.7.9"
+  },
   "dependencies": {
-    "electron": "^1.7.9"
+    "electron": "^1.7.10"
   }
 }
