@@ -7,18 +7,31 @@
 	<script type="text/javascript" src="eventListener.js"></script>
 </head>
 <body>
-
+	<h2> Hello World </h2>
+	<ul id="shoppingList"></ul>
 	<script>
 		const electron = require('electron');
 		const {ipcRenderer} = electron;
-		const ul = document.querySelector('ul');
-
+		const ul = document.querySelector('#shoppingList');
+ 
 		ipcRenderer.on('item:add',function(e,item){
 			const li = document.createElement('li');
-			const itemText = document.creatTextNode(item);
+			const itemText = document.createTextNode(item);
 			li.appendChild(itemText);
 			ul.appendChild(li);
 		});
+
+		//Clear Item
+		ipcRenderer.on('item:clear',function(e){
+			ul.innerHtml = '';
+		});
+
+		//Remove Item
+		ul.addEventListener('dblclick',removeItem);
+
+		function removeItem(e){
+			e.target.remove();
+		}
 
 	</script>
 </body>

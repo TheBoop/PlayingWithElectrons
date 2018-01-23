@@ -27,8 +27,7 @@ function initialBoot(){
 };
 
 // Catch item
-ipcMain.on("item:add", function(e, item){
-	console.log(item);
+ipcMain.on("item:add", function(e, item){ 
 	mainWindow.webContents.send('item:add', item);
 	addWindow.close();
 });
@@ -60,7 +59,10 @@ const mainMenuTemplate = [
 				}
 			},
 			{
-				label: 'Clear Items'
+				label: 'Clear Items',
+				click(){
+					mainWindow.webContents.send('item:clear');
+				}
 			},
 			{
 				label: 'Quit',
